@@ -20,25 +20,10 @@ class RotatingT extends JPanel{
 
     public RotatingT() {
         new Timer(20, e -> {
-            angle = (angle + 2) % 360; 
+            angle = (angle + 5) % 360;  // rotate clockwise by 5 degrees
             repaint(); 
         }).start();
     }
-
-   /*private double angle = 0;
-   private Timer timer;
-
-    public RotatingT() {
-        timer = new Timer(20, e -> {
-                angle += 2;
-                    if (angle >= 180) {
-                        angle = 0;
-                        timer.stop();
-                    }
-                    repaint();
-                });
-                timer.start();
-    }*/
 
 
 
@@ -66,5 +51,10 @@ class RotatingT extends JPanel{
         frame.setVisible(true);
     }
 }
+
+
+
+
+
 
 
