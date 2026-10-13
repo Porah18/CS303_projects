@@ -1,18 +1,31 @@
 
+/*
+ * CS303: Computer Graphics - Continuous Assessment Course Project 1
+ * Alphabet: Letter T
+ * Task: Draw the letter T in 2D and rotate it 360 degrees clockwise.
+ *
+ * The letter T is drawn using two filled rectangles: 
+ * a horizontal bar and a vertical stem. 
+ * The shape is positioned at the center of the panel
+ * and rotated clockwise in real time using a Swing Timer.
+ * The animation currently stops after a 360-degree rotation.
+ */
+
+
 import java.awt.*;
 import javax.swing.*;
 
-/*class RotatingT extends JPanel{
-    private double angle = 0;
+class RotatingT extends JPanel{
+    private double angle = 0;       // current rotation angle in radians
 
     public RotatingT() {
         new Timer(20, e -> {
             angle = (angle + 2) % 360; 
             repaint(); 
         }).start();
-    }*/
+    }
 
-   private double angle = 0;
+   /*private double angle = 0;
    private Timer timer;
 
     public RotatingT() {
@@ -25,7 +38,7 @@ import javax.swing.*;
                     repaint();
                 });
                 timer.start();
-    }
+    }*/
 
 
 
@@ -53,3 +66,5 @@ import javax.swing.*;
         frame.setVisible(true);
     }
 }
+
+
