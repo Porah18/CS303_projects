@@ -15,24 +15,16 @@
 import java.awt.*;
 import javax.swing.*;
 
-class RotatingT extends JPanel{
+class RotatingTProject1 extends JPanel{
     private double angle = 0;       // current rotation angle in radians
-    private int yPosition = 0;     // vertical position of the letter T
-    private int speed = 2;         // speed of the rotation in degrees per frame
-
-    public RotatingT() {   //every 20 ms: add 2 degrees (a full turn takes 180 steps), then redraw
+    
+    public RotatingTProject1() { 
+        setBackground(Color.WHITE);  //every 20 ms: add 2 degrees (a full turn takes 180 steps), then redraw
         new Timer(20, e -> {
-            angle = (angle - 2 + 360) % 360;  // rotate clockwise by 2 degrees
-            yPosition += speed;  // move the letter T downwards
-
-            if (yPosition >= 150){
-                yPosition = 150;  // reset position to the top
-            }
-
-            repaint(); 
-        }).start();
+            angle = (angle + 2) % 360;  // rotate clockwise by 2 degrees
+            repaint();
+    }).start();
     }
-
 
 
     @Override 
@@ -42,18 +34,18 @@ class RotatingT extends JPanel{
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                             RenderingHints.VALUE_ANTIALIAS_ON);   
         
-        g2.translate(getWidth() / 2.0, getHeight() / 2.0 + yPosition);  //origin to the center   
-        g2.rotate(Math.toRadians(angle));                  //convert from degrees to radius clockwise
+        g2.translate(getWidth() / 2.0, getHeight() / 2.0);  //origin to the center   
+        g2.rotate(Math.toRadians(-angle));               //convert from degrees to radius clockwise
+        g2.scale(1.6, 1.6);          // 1.5 = 150% size, 0.5 = half size
 
-        //g2.setColor(new Color(0x1F6FEB));  // Set color for the letter 
-        g2.setColor(Color.BLUE);  
+        g2.setColor(Color.BLACK);  
         g2.fillRect(-80, -100, 160, 40);   //horizontal bar of the T
         g2.fillRect(-20, -60, 40, 160);   //vertical bar of the T
     }
 
     public static void main(String[] args){
         JFrame frame = new JFrame("Rotating Letter T");
-        frame.add(new RotatingT());
+        frame.add(new RotatingTProject1());
         frame.setSize(500,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
